@@ -1,0 +1,15 @@
+<mat-toolbar style="background-color: #1f1e1e;box-shadow: 5px 10px 18px #888888;"  >
+  <div class="p-2">
+      <a>
+          <img [src]="logoPath" style="width:200px; margin-top:25%">
+      </a>
+  </div>
+  <div style="width:90%">
+  </div>
+  <div class="ml-auto p-2">
+    <button mat-button [matMenuTriggerFor]="menu" style="color:white;margin-right:5px">Ilyes El Ouni</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Signout</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

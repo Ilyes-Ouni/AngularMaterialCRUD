@@ -1,0 +1,61 @@
+<mat-form-field appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+</mat-form-field>
+
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Position Column  -->
+      <ng-container matColumnDef="ClientID">
+          <th mat-header-cell *matHeaderCellDef> ClientID </th>
+          <td mat-cell *matCellDef="let element"> {{element.ClientID}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="clientName">
+          <th mat-header-cell *matHeaderCellDef> ClientName </th>
+          <td mat-cell *matCellDef="let element"> {{element.clientName}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell *matHeaderCellDef> phone Number </th>
+          <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+      </ng-container>
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="createdOn">
+          <th mat-header-cell *matHeaderCellDef> createdOn </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdOn | date : 'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef> Address </th>
+          <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="options">
+          <th (click)="addClient()" mat-header-cell *matHeaderCellDef><button mat-raised-button style="width: 160px;"><mat-icon>add</mat-icon> ADD CLIENT</button></th>
+          <!--(click)="addClient()"-->
+          <td mat-cell *matCellDef="let element">
+              <button  (click)="openDialog(element.ClientID,'UPDATE')" mat-mini-fab color="primary" style="margin-left: 5%;"><mat-icon>edit</mat-icon></button>
+              <button (click)="openDialog(element.ClientID,'DELETE')" mat-mini-fab color="warn" style="margin-left: 10%;"><mat-icon>delete</mat-icon></button>
+          </td>
+      </ng-container>
+
+      <!-- aria-label="Select page" [pageSize]="10" [length]="lengthTable" -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator pageSize="12" showFirstLastButtons>
+  </mat-paginator>
+</div>

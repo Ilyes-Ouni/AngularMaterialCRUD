@@ -1,0 +1,23 @@
+<form class="example-form" #UpdateClient="ngForm" (ngSubmit)="updateClient(UpdateClient.value)" [formGroup]="registrationForm">
+  <div class="form-group">
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> Name</mat-label>
+          <input matInput placeholder="ClientName" type="text" required="true" formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> Phone</mat-label>
+          <input matInput placeholder="PhoneNumber" type="number" required="true" formControlName="phone">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> Email</mat-label>
+          <input matInput placeholder="pat@exemple.com" type="email" required="true" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> Address</mat-label>
+          <input matInput placeholder="CompanyAddress" type="text" required="true" formControlName="address">
+      </mat-form-field>
+
+
+      <button mat-raised-button class="btn-grad" type="submit">confirm</button>
+  </div>
+</form>
